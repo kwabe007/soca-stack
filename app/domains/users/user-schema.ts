@@ -7,7 +7,7 @@ export enum Role {
 
 export const UserSchema = z.object({
   _id: z.string(),
-  email: z.string().email('Ogiltig e-postadress.'),
+  email: z.string().email('Invalid email address.'),
   role: z.nativeEnum(Role).default(Role.Member),
 })
 export type User = z.infer<typeof UserSchema>
@@ -27,6 +27,6 @@ export type UserWithPassword = z.infer<typeof UserWithPasswordSchema>
 export const UserInputSchema = UserSchema.pick({
   email: true,
 }).extend({
-  password: z.string().min(8, 'Lösenordet måste vara minst 8 tecken långt.'),
+  password: z.string().min(8, 'Password must be at least 8 characters long.'),
 })
 export type UserInput = z.infer<typeof UserInputSchema>
