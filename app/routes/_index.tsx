@@ -1,5 +1,6 @@
 import type { MetaFunction } from '@remix-run/node'
 import { useOptionalUser } from "~/utils";
+import { Form } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -22,7 +23,12 @@ export default function Index() {
         <code className="bg-gray-200 px-1 py-0.5 rounded-md">app/routes/index.tsx</code>
       </p>
       {user ? (
-        <p>You are logged in as {user.email}</p>
+        <div>
+          <p className="mb-4">You are logged in as {user.email}</p>
+            <Form method="post" action="/logout">
+              <button className="text-blue-500" type="submit">Logout</button>
+            </Form>
+        </div>
       ) : (
         <p>
           <a className="text-blue-500" href="/login">Login</a>
