@@ -6,6 +6,7 @@
     "scripts": {
         "build": "remix vite:build",
         "dev": "remix vite:dev",
+        "check": "run-s typecheck lint",
         "format": "prettier --write .",
         "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
         "start": "remix-serve ./build/server/index.js",
@@ -28,6 +29,7 @@
         "@typescript-eslint/parser": "^6.7.4",
         "eslint": "^8.55.0",
         "eslint-config-prettier": "^9.1.0",
+        "npm-run-all": "^4.1.5",
         "prettier": "3.2.5",
         "typescript": "^5.1.6",
         "vite": "^5.1.0",
