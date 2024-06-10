@@ -9,8 +9,8 @@ import { withZod } from '@remix-validated-form/with-zod'
 import { ValidatedForm, validationError } from 'remix-validated-form'
 import { z } from 'zod'
 import { Icon } from '@iconify/react'
-import { Input } from "~/components/ui/input";
-import FieldError from "~/components/FieldError";
+import { Input } from '~/components/ui/input'
+import FieldError from '~/components/FieldError'
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const userId = await getUserId(request)

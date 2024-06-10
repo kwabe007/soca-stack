@@ -1,6 +1,6 @@
 import { Database } from '@paralect/node-mongo'
 import { createIndexIfNotExists } from './database-utils'
-import env from "~/env";
+import env from '~/env'
 
 let db: Database
 

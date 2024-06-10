@@ -58,11 +58,11 @@ export async function requireAdmin(request: Request) {
 }
 
 export async function createUserSession({
-                                          request,
-                                          userId,
-                                          remember,
-                                          redirectTo,
-                                        }: {
+  request,
+  userId,
+  remember,
+  redirectTo,
+}: {
   request: Request
   userId: string
   remember: boolean

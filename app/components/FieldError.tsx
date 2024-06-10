@@ -1,4 +1,4 @@
-import { useField } from "remix-validated-form";
+import { useField } from 'remix-validated-form'
 
 interface FieldErrorProps {
   name: string
@@ -11,9 +11,5 @@ export default function FieldError({ name }: FieldErrorProps) {
     return null
   }
 
-  return (
-    <div className="text-red-600 text-sm">
-      {field.error}
-    </div>
-  )
+  return <div className="text-red-600 text-sm">{field.error}</div>
 }
