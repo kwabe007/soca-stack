@@ -1,3 +1,3 @@
 ```sh
-pnpm dlx create-remix@latest kwabe007/soca-stack
+pnpm dlx create-remix@latest --template kwabe007/soca-stack
 ```
