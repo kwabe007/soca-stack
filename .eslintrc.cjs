@@ -3,5 +3,6 @@ module.exports = {
   extends: ['@remix-run/eslint-config'],
   rules: {
     '@typescript-eslint/consistent-type-imports': 'off',
+    'react/jsx-key': 'error',
   },
 }
