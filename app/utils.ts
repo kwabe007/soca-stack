@@ -96,3 +96,16 @@ export function generateId(): string {
   }
   return result
 }
+
+/**
+ * Assert that the given value is truthy or throw. This is usually to assert that an object is not null or undefined.
+ */
+export function getOrThrow<T>(
+  value: T | null | undefined,
+  message = 'Falsy value where not expected'
+): T {
+  if (!value) {
+    throw new Error(message)
+  }
+  return value
+}
