@@ -1,5 +1,9 @@
 import { z } from 'zod'
 
+// Schemas for convenience
+const trueFalseSchema = z.enum(['true', 'false']).transform((value) => value === 'true')
+const nonEmptyStringSchema = z.string().min(1, 'Cannot be empty')
+
 const schema = z.object({
   SESSION_SECRET: z.string().min(1),
   MONGODB_URI: z.string(),
