@@ -1,7 +1,7 @@
 import { createCookieSessionStorage, json, redirect } from '@remix-run/node'
 import { getUserById } from '~/domains/users/user-queries.server'
 import { Role } from '~/domains/users/user-schema'
-import env from '~/env'
+import env from '~/env.server'
 
 export const sessionStorage = createCookieSessionStorage({
   cookie: {
