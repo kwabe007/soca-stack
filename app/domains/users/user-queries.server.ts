@@ -43,7 +43,7 @@ export async function getUserByEmail(email: string) {
   return await userService.findOne({ email })
 }
 
-export async function verifyLogin(email: string, password: string) {
+export async function verifyLogin(email: string, password: string): Promise<User | null> {
   const docs = await userService.aggregate([
     {
       $match: {
@@ -83,7 +83,8 @@ export async function verifyLogin(email: string, password: string) {
     return null
   }
 
-  const { password: _password, ...userWithoutPassword } = userWithPassword
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- We do this to omit the password from the user object
+  const { password: _, ...userWithoutPassword } = userWithPassword
 
   return userWithoutPassword
 }

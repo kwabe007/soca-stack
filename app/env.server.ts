@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars -- Don't trigger unused variable error on predefined helper schemas */
+
 import { z } from 'zod'
 
 // Schemas for convenience

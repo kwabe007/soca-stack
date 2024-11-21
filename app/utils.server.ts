@@ -2,7 +2,7 @@ import qs from 'qs'
 import { z } from 'zod'
 import { Params } from '@remix-run/react'
 import { Validator } from 'remix-validated-form'
-import { parseNumberOrThrow } from '~/utils'
+import { parseNumberOrUndefined } from '~/utils'
 import { getUser } from '~/session.server'
 import { json, redirect } from '@remix-run/node'
 
@@ -21,9 +21,8 @@ export function getParamOr400(params: Params, key: string): string {
 
 export function getNumberParam400(params: Params, key: string): number {
   const stringParam = getParamOr400(params, key)
-  try {
-    return parseNumberOrThrow(stringParam)
-  } catch (e) {
+  const number = parseNumberOrUndefined(stringParam)
+  if (typeof number !== 'number') {
     throw json(
       {
         message: `Invalid parameter ${key}. ${stringParam} can not be read as number`,
@@ -31,6 +30,7 @@ export function getNumberParam400(params: Params, key: string): number {
       { status: 400 }
     )
   }
+  return number
 }
 
 export async function parseIntentOr400<const T extends readonly [string, ...string[]]>(
